@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 /**
  * Created by Anant on 04-07-2017.
  */
-public class UserServiceSecondImpl implements UserService {
-    @Autowired
+public class UserServiceImpl implements UserService {
+
     private UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User getUserById(String id) {
-        System.out.println("\n\n\n\n\nsecond\n\n\n\n\n");
         return userRepository.findOne(id);
     }
 }
